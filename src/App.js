@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import Research from './components/Research';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -11,6 +12,7 @@ function App() {
   return (
     <AppContainer>
       <Header/>
+      <Research/>
     </AppContainer>
   );
 }

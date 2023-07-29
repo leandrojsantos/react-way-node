@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const textsHeader = ['CATEGORIAS','COMPRAS','FAVORITOS']
+const textsHeader = ['CATEGORIAS','FAVORITOS','COMPRAS']
 
 const OptionsContainer = styled.li`
   font-size: 16px;
@@ -14,8 +14,7 @@ const OptionsContainer = styled.li`
   min-width: 120px;
 `
 const Options = styled.ul`
-    margin-right: 40px;
-    width: 25px;
+  display: flex;
 `
 
 function OptionsHeader() {
