@@ -23,13 +23,29 @@ const Subtitle = styled.h3`
         font-size: 16px;
         font-weight: 500;
         margin-bottom: 40px;
+
+`
+
+const ResultContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    p {
+        width: 200px;
+    }
+    img {
+        width: 100px;
+    }
+    &:hover {
+        border: 1px solid white;
+    }
 `
 
 function Research () {
 
   const [typedText, setTypedText] = useState([])
-
-  console.log(typedText)
 
   return (
     <SectionContainer>
@@ -40,11 +56,16 @@ function Research () {
         onBlur={ event => {
           const textResearch = event.target.value
           const searchResult = dataSource.filter( livro => livro.name.includes(textResearch))
-
           setTypedText(searchResult)
-      }}
+        }}
       />
 
+      { typedText.map(livro => (
+        <ResultContainer>
+            <img src={livro.src}/>
+            <p>{livro.name}</p>
+        </ResultContainer>
+      ))}
     </SectionContainer>
   )
 }
