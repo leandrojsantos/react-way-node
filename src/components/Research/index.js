@@ -1,6 +1,7 @@
 import Input from '../Input';
 import { useState } from 'react';
-import styled from 'styled-components'
+import { dataSource } from './dataSource';
+import styled from 'styled-components';
 
 const SectionContainer = styled.section`
         background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
@@ -26,7 +27,9 @@ const Subtitle = styled.h3`
 
 function Research () {
 
-  const [ typedText, setNewTypedText] = useState('')
+  const [typedText, setTypedText] = useState([])
+
+  console.log(typedText)
 
   return (
     <SectionContainer>
@@ -34,9 +37,14 @@ function Research () {
       <Subtitle>Use o campo abaixo para encontra o deseja.</Subtitle>
       <Input 
         placeholder='Pesquisa'
-        onBlur={event => setNewTypedText(event.target.value)}
+        onBlur={ event => {
+          const textResearch = event.target.value
+          const searchResult = dataSource.filter( livro => livro.name.includes(textResearch))
+
+          setTypedText(searchResult)
+      }}
       />
-      <p>{typedText}</p>
+
     </SectionContainer>
   )
 }
