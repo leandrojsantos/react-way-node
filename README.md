@@ -9,7 +9,7 @@
 <p align="center">
  <a href="#sobre-o-projeto">Sobre o projeto</a> •
  <a href="#pré-requisitos">Pré-requisitos</a> •
- <a href="#rodando-o-projeto">Rodando o projeto</a> •
+ <a href="#rodando-o-projeto">Rodando o projeto</a> 
 </p>
 
 ## Sobre o projeto
@@ -17,8 +17,7 @@ Projeto desenvolvido com objetivo de, desenvolver um
 código que seja capaz de:
 - Extrair os dados relevantes dessas faturas.
 - Organizar esses dados de maneira estruturada em um banco de dados PostgreSQL.
-- Apresentar esses dados em uma aplicação web, criada a partir de protótipos elaborados
-pelo candidato no Figma.
+- Apresentar esses dados em uma aplicação web, criada a partir de protótipos no Figma.
 Com as seguintes tecnologias: JavaScript/Typescript, Node e React.
 
 ## 🚀 Como executar o projeto
