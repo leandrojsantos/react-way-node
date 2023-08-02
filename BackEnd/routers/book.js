@@ -1,33 +1,26 @@
 const { Router } = require("express")
+const { getErrorBook } = require("../controllers/book")
+const { postBook } = require("../controllers/book")
+const { patchBook } = require("../controllers/book")
+const { deleteBook } = require("../controllers/book")
+const { optionBook } = require("../controllers/book")
+const { headBook } = require("../controllers/book")
+const { putBook } = require("../controllers/book")
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('test router get : /books')
-})
+router.get('/', getErrorBook)
 
-router.post('/', (req, res) => {
-    res.send('test router post : /books')
-})
+router.post('/', postBook)
 
-router.patch('/', (req, res) => {
-    res.send('test router patch : /books')
-})
+router.patch('/', patchBook)
 
-router.delete('/', (req, res) => {
-    res.send('test router delete : /books')
-})
+router.delete('/', deleteBook)
 
-router.options('/', (req, res) => {
-    res.send('test router options : /books')
-})
+router.options('/', optionBook)
 
-router.head('/', (req, res) => {
-    res.send('test router head : /books')
-})
+router.head('/', headBook)
 
-router.put('/', (req, res) => {
-    res.send('test router put : /books')
-})
+router.put('/', putBook)
 
 module.exports = router
