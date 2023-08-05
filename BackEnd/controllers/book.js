@@ -1,58 +1,60 @@
 const { getAllBook } = require ("../service/book")
 
-function getBook (req, res) {
-  //res.send('test router get : /book')
+function get (req, res) {
+  //res.send('test router get : /bookAllBook')
   const currentBook = getAllBook()
   res.send(currentBook)
 }
 
-function getBookId (req, res) {
-  //res.send('test router getBookId : /book')
+function getId (req, res) {
+  //res.send('test router getId : /getIdBook')
 }
 
-function getErrorBook (req, res) {
+function getError (req, res) {
   /**
   try {
-      res.send('Server error')
+      res.send('Server error' : /getErrorBook)
   } catch (error) {
       res.status(500)
       res.send(error.message)
   }
-  */
+    */
 }
 
-function postBook (req, res) {
-  //res.send('test router post : /book')
+function post (req, res) {
+  //res.send('test router post : /postBook')
 }
 
-function patchBook (req, res) {
-  //res.send('test router patch : /book')
+function patch (req, res) {
+  //res.send('test router patch : /patchBook')
+    const currentBook = getAllBook()
+  res.send(currentBook)
 }
 
-function deleteBook (req, res) {
-  //res.send('test router delete : /book')
+function deleteId (req, res) {
+  //res.send('test router delete : /deleteIdBook')
 }
 
-function optionBook (req, res) {
-  //res.send('test router options : /book')
+function option (req, res) {
+  //res.send('test router options : /optionBook')
 }
 
-function headBook (req, res) {
-  //res.send('test router head : /book')
+function head (req, res) {
+  //res.send('test router head : /headBook')
 }
 
-function putBook (req, res) {
-  //res.send('test router put : /book')
+function put (req, res) {
+  //res.send('test router put : /putBook')
 }
 
 module.exports = {
-  getBook,
-  getBookId,
-  getErrorBook,
-  postBook,
-  patchBook,
-  deleteBook,
-  optionBook,
-  headBook,
-  putBook
+  get,
+  getId,
+  getError,
+  post,
+  patch,
+  deleteId,
+  option,
+  head,
+  put
 }

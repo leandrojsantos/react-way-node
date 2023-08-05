@@ -1,32 +1,32 @@
 const { Router } = require("express")
-const { getBook } = require("../controllers/book")
-const { getBookId } = require("../controllers/book")
-const { getErrorBook } = require("../controllers/book")
-const { postBook } = require("../controllers/book")
-const { patchBook } = require("../controllers/book")
-const { deleteBook } = require("../controllers/book")
-const { optionBook } = require("../controllers/book")
-const { headBook } = require("../controllers/book")
-const { putBook } = require("../controllers/book")
+const { get } = require("../controllers/book")
+const { getId } = require("../controllers/book")
+const { getError } = require("../controllers/book")
+const { post } = require("../controllers/book")
+const { patch } = require("../controllers/book")
+const { deleteId } = require("../controllers/book")
+const { option } = require("../controllers/book")
+const { head } = require("../controllers/book")
+const { put } = require("../controllers/book")
 
 const router = Router()
 
-router.get('/', getBook)
+router.get('/', get)
 
-router.get('/', getErrorBook)
+router.get('/', getError)
 
-router.get('/:id', getBookId)
+router.get('/:id', getId)
 
-router.post('/', postBook)
+router.post('/', post)
 
-router.patch('/', patchBook)
+router.patch('/:id', patch)
 
-router.delete('/', deleteBook)
+router.delete('/:id', deleteId)
 
-router.options('/', optionBook)
+router.options('/', option)
 
-router.head('/', headBook)
+router.head('/', head)
 
-router.put('/', putBook)
+router.put('/:id', put)
 
 module.exports = router
