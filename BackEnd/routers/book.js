@@ -1,4 +1,6 @@
 const { Router } = require("express")
+const { getBook } = require("../controllers/book")
+const { getBookId } = require("../controllers/book")
 const { getErrorBook } = require("../controllers/book")
 const { postBook } = require("../controllers/book")
 const { patchBook } = require("../controllers/book")
@@ -9,7 +11,11 @@ const { putBook } = require("../controllers/book")
 
 const router = Router()
 
+router.get('/', getBook)
+
 router.get('/', getErrorBook)
+
+router.get('/:id', getBookId)
 
 router.post('/', postBook)
 
