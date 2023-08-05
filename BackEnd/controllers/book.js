@@ -1,8 +1,8 @@
-const fs = require('fs')
+const { getAllBook } = require ("../service/book")
 
 function getBook (req, res) {
   //res.send('test router get : /book')
-  const currentBook = JSON.parse( fs.readFileSync( "./dataBase/book.json" ))
+  const currentBook = getAllBook()
   res.send(currentBook)
 }
 
