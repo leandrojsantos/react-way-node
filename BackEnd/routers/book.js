@@ -1,7 +1,6 @@
 const { Router } = require("express")
 const { get } = require("../controllers/book")
 const { getId } = require("../controllers/book")
-const { getError } = require("../controllers/book")
 const { post } = require("../controllers/book")
 const { patch } = require("../controllers/book")
 const { deleteId } = require("../controllers/book")
@@ -13,20 +12,18 @@ const router = Router()
 
 router.get('/', get)
 
-router.get('/', getError)
-
-router.get('/:id', getId)
-
 router.post('/', post)
+
+router.put('/:id', put)
 
 router.patch('/:id', patch)
 
 router.delete('/:id', deleteId)
 
+router.get('/:id', getId)
+
 router.options('/', option)
 
 router.head('/', head)
-
-router.put('/:id', put)
 
 module.exports = router

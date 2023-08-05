@@ -1,25 +1,16 @@
 const fs = require('fs')
 
-const currentDatabase = JSON.parse(fs.readFileSync("./dataBase/book.json"))
-
 function getAllBook () {
   //res.send('test router get : /getAllBook')
-  return currentDatabase
+  return JSON.parse(fs.readFileSync("./dataBase/book.json"))
 }
 
-function getIdBook () {
-  //res.send('test router getBookId : /getIdBook')
-}
+function getIdBook (id) {
+  //res.send('test router getBookId : /getIdBook/:id')
+  const currentDatabase = JSON.parse(fs.readFileSync("./dataBase/book.json"))
+  const idDatabaseFilter = currentDatabase.filter( currentDatabase => currentDatabase.id === id) [0]
 
-function getErrorBook () {
-  /**
-  try {
-      res.send('Server error' : /getErrorBook)
-  } catch (error) {
-      res.status(500)
-      res.send(error.message)
-  }
-    */
+  return idDatabaseFilter
 }
 
 function postBook () {
@@ -27,11 +18,15 @@ function postBook () {
 }
 
 function patchBook () {
-  //res.send('test router patch : /patchBook')
+  //res.send('test router patch : /patchBook/:id')
+}
+
+function putBook () {
+  //res.send('test router put : /putBook/:id')
 }
 
 function deleteIdBook () {
-  //res.send('test router delete : /deleteIdBook')
+  //res.send('test router delete : /deleteIdBook/:id')
 }
 
 function optionBook () {
@@ -42,14 +37,9 @@ function headBook () {
   //res.send('test router head : /headBook')
 }
 
-function putBook () {
-  //res.send('test router put : /putBook')
-}
-
 module.exports = {
   getAllBook,
   getIdBook,
-  getErrorBook,
   postBook,
   patchBook,
   deleteIdBook,

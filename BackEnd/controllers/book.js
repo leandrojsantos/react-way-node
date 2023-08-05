@@ -1,4 +1,13 @@
 const { getAllBook } = require ("../service/book")
+const { getIdBook } = require ("../service/book")
+const { getErrorBook } = require ("../service/book")
+const { postBook } = require ("../service/book")
+const { patchBook } = require ("../service/book")
+const { deleteIdBook } = require ("../service/book")
+const { optionBook } = require ("../service/book")
+const { headBook } = require ("../service/book")
+const { putBook } = require ("../service/book")
+
 
 function get (req, res) {
   //res.send('test router get : /bookAllBook')
@@ -7,18 +16,10 @@ function get (req, res) {
 }
 
 function getId (req, res) {
-  //res.send('test router getId : /getIdBook')
-}
-
-function getError (req, res) {
-  /**
-  try {
-      res.send('Server error' : /getErrorBook)
-  } catch (error) {
-      res.status(500)
-      res.send(error.message)
-  }
-    */
+  //req.send('test router getId : /getIdBook/:id')
+  const id = req.params.id
+  const currentBook = getIdBook(id)
+  res.send(currentBook)
 }
 
 function post (req, res) {
@@ -26,13 +27,15 @@ function post (req, res) {
 }
 
 function patch (req, res) {
-  //res.send('test router patch : /patchBook')
-    const currentBook = getAllBook()
-  res.send(currentBook)
+  //res.send('test router patch : /patchBook/:id')
+}
+
+function put (req, res) {
+  //res.send('test router put : /putBook:id')
 }
 
 function deleteId (req, res) {
-  //res.send('test router delete : /deleteIdBook')
+  //res.send('test router delete : /deleteIdBook/:id')
 }
 
 function option (req, res) {
@@ -43,14 +46,9 @@ function head (req, res) {
   //res.send('test router head : /headBook')
 }
 
-function put (req, res) {
-  //res.send('test router put : /putBook')
-}
-
 module.exports = {
   get,
   getId,
-  getError,
   post,
   patch,
   deleteId,
