@@ -13,16 +13,20 @@ function getIdBook (id) {
   return idDatabaseFilter
 }
 
-function postBook () {
+function postBook (newBook) {
   //res.send('test router post : /postBook')
+  const currentDatabase = JSON.parse(fs.readFileSync("./dataBase/book.json"))
+  const postBookResult = [ ...currentDatabase, newBook ]
+
+  fs.writeFileSync("./dataBase/book.json", JSON.stringify(postBookResult))
 }
 
-function patchBook () {
-  //res.send('test router patch : /patchBook/:id')
+function patchIdBook () {
+  //res.send('test router patch : /patchIdBook/:id')
 }
 
-function putBook () {
-  //res.send('test router put : /putBook/:id')
+function putIdBook () {
+  //res.send('test router put : /putIdBook/:id')
 }
 
 function deleteIdBook () {
@@ -41,9 +45,9 @@ module.exports = {
   getAllBook,
   getIdBook,
   postBook,
-  patchBook,
+  patchIdBook,
   deleteIdBook,
   optionBook,
   headBook,
-  putBook
+  putIdBook
 }

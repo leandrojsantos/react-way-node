@@ -1,12 +1,11 @@
 const { getAllBook } = require ("../service/book")
 const { getIdBook } = require ("../service/book")
-const { getErrorBook } = require ("../service/book")
 const { postBook } = require ("../service/book")
 const { patchBook } = require ("../service/book")
 const { deleteIdBook } = require ("../service/book")
 const { optionBook } = require ("../service/book")
 const { headBook } = require ("../service/book")
-const { putBook } = require ("../service/book")
+const { putIdBook } = require ("../service/book")
 
 
 function get (req, res) {
@@ -24,6 +23,10 @@ function getId (req, res) {
 
 function post (req, res) {
   //res.send('test router post : /postBook')
+  const newBook = req.body
+  postBook(newBook)
+  res.status(201)
+  res.send("book inserted success")
 }
 
 function patch (req, res) {
@@ -31,7 +34,7 @@ function patch (req, res) {
 }
 
 function put (req, res) {
-  //res.send('test router put : /putBook:id')
+  //res.send('test router put : /putIdBook:id')
 }
 
 function deleteId (req, res) {

@@ -2,8 +2,9 @@ const express = require("express")
 const routeBook = require("./routers/book")
 
 const server = express()
-const port = 8000
 
+const port = 8000
+server.use(express.json())
 server.use('/book', routeBook)
 
 
