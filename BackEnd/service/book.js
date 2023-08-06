@@ -21,16 +21,27 @@ function postBook (newBook) {
   fs.writeFileSync("./dataBase/book.json", JSON.stringify(postBookResult))
 }
 
-function patchIdBook () {
+function patchIdBook (edit, id) {
   //res.send('test router patch : /patchIdBook/:id')
+  let currentDatabase = JSON.parse(fs.readFileSync("./dataBase/book.json"))
+  const editIndexBook = currentDatabase.findIndex(book => book.id === id)
+
+  const editBook = {...currentDatabase[editIndexBook], ...edit}
+  currentDatabase[editIndexBook] = editBook
+
+  fs.writeFileSync("./dataBase/book.json", JSON.stringify(currentDatabase))
+}
+
+function deleteIdBook (id) {
+  //res.send('test router delete : /deleteIdBook/:id')
+  const currentDatabase = JSON.parse(fs.readFileSync("./dataBase/book.json"))
+  const idDatabaseFilter = currentDatabase.filter( currentDatabase => currentDatabase.id !== id) 
+
+  fs.writeFileSync("./dataBase/book.json", JSON.stringify(idDatabaseFilter))
 }
 
 function putIdBook () {
   //res.send('test router put : /putIdBook/:id')
-}
-
-function deleteIdBook () {
-  //res.send('test router delete : /deleteIdBook/:id')
 }
 
 function optionBook () {
@@ -46,8 +57,8 @@ module.exports = {
   getIdBook,
   postBook,
   patchIdBook,
+  putIdBook,
   deleteIdBook,
   optionBook,
-  headBook,
-  putIdBook
+  headBook
 }
