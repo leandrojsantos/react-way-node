@@ -12,9 +12,9 @@ const Input = styled.input`
   margin-bottom: 10px;
 
   &::placeholder {
-          color: #FFF;
-          font-size: 16px;
-          text-align: center;
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
   }
         
 `

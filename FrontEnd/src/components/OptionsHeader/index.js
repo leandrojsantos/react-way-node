@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const textsHeader = ['CATEGORIAS','FAVORITOS','COMPRAS']
@@ -21,9 +22,11 @@ function OptionsHeader() {
   return (
         <OptionsContainer>
           { textsHeader.map((loop)=>(
-            <Options>
-              <p>{loop}</p>
-            </Options>
+            <Link to={`/${loop.toLowerCase()}`}>
+              <Options>
+                <p>{loop}</p>
+              </Options>
+            </Link>
           ))}
         </OptionsContainer>
   )
